@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisador de Postura com BlazePose</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            position: relative;
+            width: 640px;
+            height: 480px;
+            margin-top: 20px;
+        }
+        #video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform: scaleX(-1); 
+        }
+        #output {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform: scaleX(-1);
+        }
+        #posture-status {
+            margin-top: 20px;
+            font-size: 1.2em;
+            padding: 10px;
+            border: 1px solid #ccc;
+            min-height: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Detector de Postura Sentada 🪑</h1>
+    <div id="container">
+        <video id="video" playsinline autoplay muted></video>
+        <canvas id="output"></canvas>
+    </div>
+    <div id="posture-status">Aguardando análise de postura...</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.14.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.5.1675469404/pose.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection@0.0.8/dist/pose-detection.min.js"></script>
+
+    <script src="../index.js"></script>
+</body>
+</html>
