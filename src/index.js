@@ -49,6 +49,24 @@ function analyzeSittingPosture(keypoints) {
   return "Postura sentada básica OK!";
 }
 
+function drawSkeleton(ctx, keypoints) {
+  const pairs = [
+    [11, 12], [11, 23], [12, 24], [23, 24],
+    [11, 13], [13, 15], [12, 14], [14, 16], 
+  ];
+  ctx.strokeStyle = "lime";
+  ctx.lineWidth = 2;
+  for (const [a, b] of pairs) {
+    const kp1 = keypoints[a], kp2 = keypoints[b];
+    if (kp1?.score > 0.6 && kp2?.score > 0.6) {
+      ctx.beginPath();
+      ctx.moveTo(kp1.x, kp1.y);
+      ctx.lineTo(kp2.x, kp2.y);
+      ctx.stroke();
+    }
+  }
+}
+
 async function main() {
   await setupCamera();
 
@@ -68,6 +86,8 @@ async function main() {
 
     if (poses.length > 0) {
       const pose = poses[0];
+      drawSkeleton(ctx, pose.keypoints);
+
       for (const kp of pose.keypoints) {
         if (kp.score > 0.6) {
           ctx.beginPath();
