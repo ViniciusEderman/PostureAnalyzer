@@ -213,7 +213,7 @@ Ideia geral:
 - Usa quadris apenas como bônus se bem detectados.
 - Classifica em: Boa, Regular/Aceitável, Ruim, Crítica.
 
-Retorna mensagens em português descrevendo o estado da postura.
+Retorna mensagens descrevendo o estado da postura.
 
 ### `src/db/database.js` – Persistência com IndexedDB
 
