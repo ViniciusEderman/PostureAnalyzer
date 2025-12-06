@@ -273,7 +273,7 @@ Define a identidade visual:
 
 - O modelo de pose roda continuamente (30+ fps, dependendo da máquina).
 - O texto de status **não** é atualizado a cada frame, e sim no máximo a cada 5 segundos, para evitar mudanças muito rápidas.
-- As capturas de histórico são salvas em intervalos configuráveis (padrão atual: 30 segundos).
+- As capturas de histórico são salvas em intervalos configuráveis padrão 30 segundos.
 
 ---
 
