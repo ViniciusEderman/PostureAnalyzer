@@ -1,24 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Analisador de Postura</title>
-  <style>
-    body { display: flex; flex-direction: column; align-items: center; font-family: Arial; }
-    #container { position: relative; width: 640px; height: 480px; margin-top: 20px; }
-    #video, #output { position: absolute; width: 100%; height: 100%; transform: scaleX(-1); }
-    #posture-status { margin-top: 20px; padding: 10px; border: 1px solid #ccc; font-size: 1.2em; }
-  </style>
-</head>
-<body>
-  <h1>Detector de Postura Sentada 🪑</h1>
-  <div id="container">
-    <video id="video" playsinline autoplay muted></video>
-    <canvas id="output"></canvas>
-  </div>
-  <div id="posture-status">Aguardando análise de postura...</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analisador de Postura</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <div class="title-block">
+          <h1>Detector de Postura Sentada</h1>
+          <span>
+            Acompanhe, em tempo real, a qualidade da sua postura em frente ao
+            computador.
+          </span>
+        </div>
+        <div class="status-pill">
+          <span class="status-pill-dot"></span>
+          Monitor em tempo real
+        </div>
+      </header>
 
-  <script type="module" src="./src/index.js"></script>
-</body>
+      <section class="content">
+        <section class="video-card">
+          <div class="video-header">
+            <span>Visualização da câmera</span>
+            <span class="badge">Tempo real</span>
+          </div>
+          <div id="container">
+            <video id="video" playsinline autoplay muted></video>
+            <canvas id="output"></canvas>
+          </div>
+        </section>
+
+        <aside class="sidebar">
+          <div id="posture-status">Aguardando análise de postura...</div>
+          <p class="hint">
+            Dica: sente-se com os pés apoiados no chão, coluna neutra e
+            pescoço alinhado. O sistema registrará capturas periódicas da sua
+            postura para comparação futura.
+          </p>
+        </aside>
+      </section>
+    </main>
+
+    <script type="module" src="./src/index.js"></script>
+  </body>
 </html>
