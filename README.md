@@ -62,7 +62,7 @@ O navegador irá pedir permissão para acessar a câmera.
    - Atualiza o texto de status com um **intervalo mínimo de 5s**, para evitar flicker.
 
 4. **Capturas periódicas** (`src/capture/snapshot.js`):
-   - A cada _N_ segundos (atualmente 30s), captura um frame do `canvas`.
+   - A cada 30 segundos, captura um frame do `canvas`.
    - Reduz a imagem para 320x240, converte para JPEG.
    - Armazena no IndexedDB junto com status de postura e keypoints.
 
@@ -250,7 +250,7 @@ Lida com a geração de screenshots e armazenamento periódico:
   - Salva tudo via `storePostureRecord`.
 
 - `startPostureCapture(detector, video, canvas, postureStatus)`
-  - Agenda uma captura a cada X ms (atualmente **30s**).
+  - Agenda uma captura a cada 30 s.
   - Faz uma captura inicial após alguns segundos.
   - Retorna o `captureInterval` (id do `setInterval`).
 
